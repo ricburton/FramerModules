@@ -48,6 +48,12 @@ class exports.create extends Layer
 			else if @direction == "backward"
 				dashOffset = Utils.modulate(@.perspective, [0, 1], [pathLength, pathLength*2])
 				@.style['stroke-dashoffset'] = dashOffset
+			else if @direction == "shrinkforward"
+				dashOffset = Utils.modulate(@.perspective, [1, 0], [pathLength, 0])
+				@.style['stroke-dashoffset'] = dashOffset
+			else if @direction == "shrinkbackward"
+				dashOffset = Utils.modulate(@.perspective, [1, 0], [pathLength, pathLength*2])
+				@.style['stroke-dashoffset'] = dashOffset
 
 	animatePath: (options={}) =>
 		options.direction ?= "forward"
